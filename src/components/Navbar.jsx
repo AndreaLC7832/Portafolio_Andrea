@@ -1,51 +1,53 @@
 import { useState } from "react";
-
 import logo from "../assets/logo.png";
-
 
 const Navbar = ({ onSlideChange }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 text-white px-6 py-4 backdrop-blur">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/70 text-white px-6 py-4 shadow-lg">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        
-        {/* Logo simple */}
-        <img 
-          src={logo} 
-          alt="Logo" 
-          className="h-15 w-auto cursor-pointer" 
+
+        {/* Logo */}
+        <img
+          src={logo}
+          alt="Logo"
+          className="h-12 w-auto cursor-pointer"
         />
+
         {/* Desktop menu */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden md:flex space-x-8">
           <li>
             <button
               onClick={() => onSlideChange(0)}
-              className="hover:text-blue-400 transition"
+              className="text-white font-medium hover:text-blue-300 transition"
             >
               About
             </button>
           </li>
+
           <li>
             <button
               onClick={() => onSlideChange(1)}
-              className="hover:text-blue-400 transition"
+              className="text-white font-medium hover:text-blue-300 transition"
             >
               Skills
             </button>
           </li>
+
           <li>
             <button
               onClick={() => onSlideChange(2)}
-              className="hover:text-blue-400 transition"
+              className="text-white font-medium hover:text-blue-300 transition"
             >
               Work Experience
             </button>
           </li>
+
           <li>
             <button
               onClick={() => onSlideChange(3)}
-              className="hover:text-blue-400 transition"
+              className="text-white font-medium hover:text-blue-300 transition"
             >
               Certifications
             </button>
@@ -53,26 +55,13 @@ const Navbar = ({ onSlideChange }) => {
         </ul>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-        >
-          {/* Menú hamburguesa */}
-          <svg
-            className="w-7 h-7"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+        <button className="md:hidden text-white" onClick={() => setOpen(!open)}>
+          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              d={
-                open
-                  ? "M6 18L18 6M6 6l12 12" // X
-                  : "M4 6h16M4 12h16M4 18h16" // 3 líneas
-              }
+              d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
         </button>
@@ -80,35 +69,38 @@ const Navbar = ({ onSlideChange }) => {
 
       {/* Mobile menu */}
       {open && (
-        <ul className="md:hidden bg-black/95 text-white mt-4 rounded-lg px-6 py-4 space-y-4">
+        <ul className="md:hidden bg-black/90 text-white mt-4 rounded-lg px-6 py-4 space-y-4 shadow-md">
           <li>
             <button
               onClick={() => { onSlideChange(0); setOpen(false); }}
-              className="w-full text-left hover:text-blue-400 transition"
+              className="w-full text-left text-white font-medium hover:text-blue-300"
             >
               About
             </button>
           </li>
+
           <li>
             <button
               onClick={() => { onSlideChange(1); setOpen(false); }}
-              className="w-full text-left hover:text-blue-400 transition"
+              className="w-full text-left text-white font-medium hover:text-blue-300"
             >
               Skills
             </button>
           </li>
+
           <li>
             <button
               onClick={() => { onSlideChange(2); setOpen(false); }}
-              className="w-full text-left hover:text-blue-400 transition"
+              className="w-full text-left text-white font-medium hover:text-blue-300"
             >
               Experience
             </button>
           </li>
+
           <li>
             <button
               onClick={() => { onSlideChange(3); setOpen(false); }}
-              className="w-full text-left hover:text-blue-400 transition"
+              className="w-full text-left text-white font-medium hover:text-blue-300"
             >
               Certs
             </button>
